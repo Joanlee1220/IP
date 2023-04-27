@@ -22,3 +22,5 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::resource('products', App\Http\Controllers\ProductController::class);
+
+Route::resource('accs', App\Http\Controllers\accController::class);

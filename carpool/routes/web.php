@@ -33,4 +33,3 @@ Route::resource('ride_schedule_histories', App\Http\Controllers\RideScheduleHist
 Route::resource('notifications', App\Http\Controllers\NotificationController::class);
 Route::resource('messages', App\Http\Controllers\MessageController::class);
 Route::resource('payments', App\Http\Controllers\PaymentController::class);
-Route::resource('wishlists', App\Http\Controllers\WishlistController::class);

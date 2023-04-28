@@ -3,17 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Product;
+use App\Models\CpUser;
 
-class ProductController extends Controller
+class CpUserController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-       $products=Product::all();
-       return view('product\index', compact('products'));
+        //
     }
 
     /**
@@ -21,22 +20,15 @@ class ProductController extends Controller
      */
     public function create()
     {
-      return view('product\create');
+        //
     }
-
-    
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-      $product = new Product();
-      $product-> code = $request->get('code');
-      $product-> name = $request->get('name');
-      $product-> save();
-      
-      return redirect('products')->with('success',"info added");
+        //
     }
 
     /**
@@ -52,10 +44,7 @@ class ProductController extends Controller
      */
     public function edit(string $id)
     {
-       $product = Product::find($id);
-  
-        return view('product\edit', compact('product', 'id'));
-        
+        //
     }
 
     /**
@@ -63,12 +52,7 @@ class ProductController extends Controller
      */
     public function update(Request $request, string $id)
     {
-      $product = Product::find($id);
-      $product-> code = $request->get('code');
-      $product-> name = $request->get('name');
-      $product-> save();
-      
-      return redirect('products');
+        //
     }
 
     /**
@@ -76,8 +60,6 @@ class ProductController extends Controller
      */
     public function destroy(string $id)
     {
-       $product = Product::find($id);
-       $product->delete();
-        return redirect('products')->with('success',"info destroy");
+        //
     }
 }

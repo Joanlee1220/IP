@@ -35,6 +35,19 @@ Route::get('/ride_requests/create/{id}', ['as' => 'ride_requests.create', 'uses'
 Route::get('/ride_shares/myShare/{userId}', ['as' => 'ride_shares.myShare', 'uses' => 'App\Http\Controllers\RideShareController@myShare']);
 
 Route::get('/ride_shares/who', ['as' => 'ride_shares.who', 'uses' => 'App\Http\Controllers\RideShareController@who']);
+Route::get('/rides/{id}/requests', [App\Http\Controllers\RideShareController::class, 'requestForRide'])->name('ride_shares.request_list');
+// Route::put('/ride_shares/{id}/accept', 'App\Http\Controllers\RideShareController@acceptedRideRide')->name('ride_shares.acceptedRide');
+
+// Route::put('ride_shares/{id}/accept', [App\Http\Controllers\RideRequestController::class, 'acceptedRide'])->name('ride_shares.acceptedRide');
+
+Route::match(['put', 'accepted'], '/ride_request/{id}/accept', 'App\Http\Controllers\RideShareController@acceptedRideRide')->name('ride_request.acceptedRide');
+
+
+Route::put('/ride_request/{id}/accept', [App\Http\Controllers\RideShareController::class, 'acceptedRideRide'])->name('ride_request.acceptedRide');
+
+
+
+
 
 
 

@@ -33,7 +33,15 @@ class RideShareController extends Controller
     public function myShare(string $userId)
     {
         $ride_shares = RideShare::where('driver_id', $userId)->get();
-        return view('ride_share\my_share', compact('ride_shares'));
+
+                return view('ride_share\my_share', compact('ride_shares'));
+    }
+
+    public function requestForRide(string $rideId)
+    {
+        $rideRequests = RideRequest::where('requested_ride_id', $rideId)->get();
+        return view('ride_share\request_list', compact('rideRequests'));
+
     }
     /**
      * Store a newly created resource in storage.
@@ -103,5 +111,16 @@ class RideShareController extends Controller
         $rideShare = rideShare::find($id);
         $rideShare->delete();
          return redirect('ride_shares')->with('success',"info destroy");
+    }
+
+    public function acceptedRideRide(string $id)
+    {
+        $rideRequest = RideRequest::findOrFail($id);
+    $rideRequest->request_status = 'accepted';
+    $rideRequest->save();
+
+    $rideRequests = RideRequest::findOrFail($rideRequest->id);
+    return view('ride_share\request_list', compact('rideRequests'));
+
     }
 }

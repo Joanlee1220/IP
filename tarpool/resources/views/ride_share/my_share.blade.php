@@ -55,7 +55,7 @@
                             </form>
                         </td>
                         <td>
-  <a href="{{ route('ride_requests.create', $rideShare->id) }}" class="btn btn-primary">Request</a>
+                        <a href="{{route('ride_shares.request_list', $rideShare['id'])}}" class="btn btn-primary">check</a>
  
 
 

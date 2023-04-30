@@ -91,7 +91,16 @@ class RideRequestController extends Controller
         $rideRequest->delete();
         return redirect('ride_requests')->with('success', 'Ride request deleted');
     }
+    public function acceptedRideRide(string $id)
+    {
+        $rideRequest = RideRequest::findOrFail($id);
+    $rideRequest->request_status = 'accepted';
+    $rideRequest->save();
 
+    $rideRequests = RideRequest::findOrFail($rideRequest->id);
+    return view('ride_request\request_list', compact('rideRequests'));
+
+    }
 
 }
 

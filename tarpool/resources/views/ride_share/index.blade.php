@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.temp')
 
 @section('content')
 <div class="container">
@@ -25,7 +25,7 @@
                     <th scope="col">Current Available Seats</th>
                     <th scope="col">Ride Note</th>
                     <th scope="col">Ride Status</th>
-                    <th colspan="4">Action</th>
+                    <th colspan="2">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -42,7 +42,7 @@
 <td>{{ $rideShare['current_available_seats'] }}</td>
 <td>{{ $rideShare['ride_note'] }}</td>
 <td>{{ $rideShare['ride_status'] }}</td>
-                        <td>
+                        <!-- <td>
                             <a href="{{route('ride_shares.edit', $rideShare['id'])}}" class="btn btn-warning">Edit</a>
                             
                             
@@ -53,7 +53,7 @@
                                 <input name="_method" type="hidden" value="DELETE">
                                 <button class="btn btn-danger" type="submit">Delete</button>
                             </form>
-                        </td>
+                        </td> -->
                         <td>
   <a href="{{ route('ride_requests.create', $rideShare->id) }}" class="btn btn-primary">Request</a>
  

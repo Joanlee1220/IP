@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +25,14 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::resource('cp_users', App\Http\Controllers\CpUserController::class);
 Route::resource('ride_shares', App\Http\Controllers\RideShareController::class);
 Route::resource('ride_requests', App\Http\Controllers\RideRequestController::class);
+
+// Route::post('ride_requests/{id}',  [App\Http\Controllers\RideRequestController::class, 'create'])->name('ride_requests.create');
+
+Route::get('/ride_shares/{id}/ride_requests/create', [App\Http\Controllers\RideRequestController::class, 'create'])->name('ride_requests.create');
+
+Route::get('/ride_requests/create/{id}', ['as' => 'ride_requests.create', 'uses' => 'App\Http\Controllers\RideRequestController@create']);
+
+
+
+
+

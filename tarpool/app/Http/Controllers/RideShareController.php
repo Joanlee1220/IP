@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\RideShare;
+use App\Models\RideRequest;
 
 class RideShareController extends Controller
 {
@@ -58,7 +59,7 @@ class RideShareController extends Controller
      */
     public function edit(string $id	)
     {
-        $rideShare = rideShare::find($id	);
+        $rideShare = rideShare::find($id);
   
         return view('ride_share\edit', compact('rideShare', 'id'));
     }

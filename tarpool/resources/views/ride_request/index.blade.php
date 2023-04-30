@@ -8,23 +8,15 @@
                 <p>{{ \Session::get('success') }}</p>
             </div><br />
             @endif
-            <td>
-                            <a href="http://localhost:8000/ride_shares/create" class="btn btn-warning">Add</a>
-                        </td>
+      
             <table class="table table-striped">
             <thead>
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Driver ID</th>
-                    <th scope="col">Pickup Location</th>
-                    <th scope="col">Dropoff Location</th>
-                    <th scope="col">Ride Date</th>
-                    <th scope="col">Ride Time</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Available Seats</th>
-                    <th scope="col">Ride Note</th>
-                    <th scope="col">Ride Status</th>
-                    <th colspan="3">Action</th>
+                <th scope="col">#</th>
+<th scope="col">Ride ID</th>
+<th scope="col">Requested User ID</th>
+<th scope="col">Request Status</th>
+<th colspan="2">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -40,7 +32,7 @@
 <td>{{ $rideShare['available_seats'] }}</td>
 <td>{{ $rideShare['ride_note'] }}</td>
 <td>{{ $rideShare['ride_status'] }}</td>
-                        <td>
+<td>
                             <a href="{{route('ride_shares.edit', $rideShare['id'])}}" class="btn btn-warning">Edit</a>
                             
                             
@@ -52,12 +44,6 @@
                                 <button class="btn btn-danger" type="submit">Delete</button>
                             </form>
                         </td>
-                        <td>
-  <!-- <a href="{{ route('ride_requests.create', $rideShare['id'])}}" class="btn btn-primary">Request</a> -->
-  <a href="{{ route('ride_requests.create', $rideShare->id) }}">Make a Ride Request</a>
-
-
-</td>
                     </tr>
                     @endforeach
                 </tbody>

@@ -35,6 +35,10 @@
                 <input type="number" class="form-control" id="available_seats" name="available_seats" required>
             </div>
             <div class="form-group">
+                <label for="available_seats">Current Available Seats:</label>
+                <input type="number" class="form-control" id="current_available_seats" name="available_seats" required>
+            </div>
+            <div class="form-group">
                 <label for="ride_note">Ride Note:</label>
                 <textarea class="form-control" id="ride_note" name="ride_note" rows="3"></textarea>
             </div>

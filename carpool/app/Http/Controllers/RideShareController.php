@@ -37,6 +37,7 @@ class RideShareController extends Controller
         $rideShare->ride_time = $request->get('ride_time');
         $rideShare->price = $request->get('price');
         $rideShare->available_seats = $request->get('available_seats');
+        $rideShare->current_available_seats = $request->get('current_available_seats');
         $rideShare->ride_note = $request->get('ride_note');
         $rideShare->ride_status = $request->get('ride_status');
         $rideShare->save();

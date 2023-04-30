@@ -1,0 +1,15 @@
+php artisan make:factory CpUser --model=CpUser
+
+php artisan make:factory RideShare --model=RideShare
+
+php artisan make:factory RideRequest --model=RideRequest
+
+php artisan tinker
+
+\App\Models\CpUser::factory()->create();
+\App\Models\CpUser::factory()->count(10)->create();
+
+\App\Models\RideShare::factory()->count(10)->create();
+
+\App\Models\RideRequest::factory()->count(10)->create();
+

@@ -25,7 +25,7 @@
                     <th scope="col">Current Available Seats</th>
                     <th scope="col">Ride Note</th>
                     <th scope="col">Ride Status</th>
-                    <th colspan="4">Action</th>
+                    <th colspan="3">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -56,12 +56,6 @@
                         </td>
                         <td>
   <a href="{{ route('ride_requests.create', $rideShare->id) }}" class="btn btn-primary">Request</a>
- 
-
-
-</td>
-<td>
-  <a href="{{route('ride_shares.myShare', $rideShare['driver_id'])}}" class="btn btn-primary">is me</a>
  
 
 

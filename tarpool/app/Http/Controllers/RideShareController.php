@@ -25,6 +25,16 @@ class RideShareController extends Controller
         return view('ride_share\create');
     }
 
+    public function who()
+    {
+        return view('ride_share\who');
+    }
+
+    public function myShare(string $userId)
+    {
+        $ride_shares = RideShare::where('driver_id', $userId)->get();
+        return view('ride_share\my_share', compact('ride_shares'));
+    }
     /**
      * Store a newly created resource in storage.
      */

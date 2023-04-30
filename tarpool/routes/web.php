@@ -32,6 +32,9 @@ Route::get('/ride_shares/{id}/ride_requests/create', [App\Http\Controllers\RideR
 
 Route::get('/ride_requests/create/{id}', ['as' => 'ride_requests.create', 'uses' => 'App\Http\Controllers\RideRequestController@create']);
 
+Route::get('/ride_shares/myShare/{userId}', ['as' => 'ride_shares.myShare', 'uses' => 'App\Http\Controllers\RideShareController@myShare']);
+
+
 
 
 

@@ -14,7 +14,7 @@ class RideRequestController extends Controller
     public function index()
     {
         $rideRequests = RideRequest::all();
-        return view('ride_request\index', compact('ride_Requests'));
+        return view('ride_request\index', compact('rideRequests'));
     }
 
     /**

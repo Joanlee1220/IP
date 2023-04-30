@@ -20,3 +20,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::resource('cp_users', App\Http\Controllers\CpUserController::class);
+Route::resource('ride_shares', App\Http\Controllers\RideShareController::class);
+Route::resource('ride_requests', App\Http\Controllers\RideRequestController::class);

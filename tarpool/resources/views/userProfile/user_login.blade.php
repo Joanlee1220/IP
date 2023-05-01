@@ -16,7 +16,7 @@
   <div class="wrapper">
     <section class="form login">
       <header>Tarpool</header>
-      <form action="#" method="POST">
+      <form action="" method="POST">
         <div class="error-text"></div>
         <div class="field input">
           <label>Email</label>

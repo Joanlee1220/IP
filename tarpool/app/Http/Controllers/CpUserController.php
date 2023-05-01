@@ -21,7 +21,7 @@ class CpUserController extends Controller
      */
     public function create()
     {
-        return view('userProfile\create');
+        return view('userProfile\createUser');
     }
 
     /**
@@ -64,7 +64,8 @@ class CpUserController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $cpuser = cpuser::find($id);
+        return view('userProfile\editUser', compact('cpuser', 'id'));
     }
 
     /**
@@ -72,7 +73,19 @@ class CpUserController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $cpuser = cpuser::find($id);
+        $cpuser->fname = $request->get('fname');
+        $cpuser->lname = $request->get('lname');
+        $cpuser->email = $request->get('email');
+        $cpuser->password = $request->get('password');
+        $cpuser->gender = $request->get('gender');
+        $cpuser->phone_number = $request->get('phone_number');
+        $cpuser->img = $request->get('img');
+        $cpuser->status = $request->get('status');
+        $cpuser->verification_status = $request->get('verification_status');
+        $cpuser->save();
+      
+      return redirect('cp_users');
     }
 
     /**
@@ -80,6 +93,8 @@ class CpUserController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $cpuser = cpuser::find($id);
+        $cpuser->delete();
+        return redirect('cp_users')->with('success',"info destroy");
     }
 }

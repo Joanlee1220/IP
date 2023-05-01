@@ -45,6 +45,15 @@ Route::match(['put', 'accepted'], '/ride_request/{id}/accept', 'App\Http\Control
 
 Route::put('/ride_request/{id}/accept', [App\Http\Controllers\RideShareController::class, 'acceptedRideRide'])->name('ride_request.acceptedRide');
 
+Route::get('/ride_shares/{id}/reply', [App\Http\Controllers\RideShareController::class, 'reply'])->name('ride_shares.reply');
+
+
+
+Route::patch('/ride_shares/{id}/replyRequest', [App\Http\Controllers\RideShareController::class, 'replyRequest'])->name('ride_shares.replyRequest');
+
+
+
+
 
 
 

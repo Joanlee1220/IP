@@ -16,7 +16,7 @@
 <th scope="col">Ride ID</th>
 <th scope="col">Requested User ID</th>
 <th scope="col">Request Status</th>
-<th colspan="2">Action</th>
+<th colspan="1">Action</th>
 
                 </tr>
             </thead>
@@ -27,21 +27,10 @@
 <td>{{$rideRequest['requested_ride_id']}}</td>
 <td>{{$rideRequest['requested_user_id']}}</td>
 <td>{{$rideRequest['request_status']}}</td>
-<td>
-                            <a href="" class="btn btn-warning">accepted</a>
-                            
-                            
-                        </td>
+
                         <td>
-                    
-                        <form method="POST" action="{{ route('ride_request.acceptedRide',$rideRequest['id'])}}">
-                        @csrf
-                        @method('PUT')
-                        <button class="btn btn-danger" type="submit">Accepted</button>
- 
-                        <input name="_method" type="hidden" value="accepted">
-                             
-</form>
+                        <a href="{{ route('ride_shares.reply', $rideRequest['id']) }}" class="btn btn-warning">REPLY</a>
+
 
                         </td>
                

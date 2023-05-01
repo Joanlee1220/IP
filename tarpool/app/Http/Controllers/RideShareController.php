@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\RideShare;
 use App\Models\RideRequest;
+use App\Models\CpUser;
 
 class RideShareController extends Controller
 {
@@ -123,4 +124,29 @@ class RideShareController extends Controller
     return view('ride_share\request_list', compact('rideRequests'));
 
     }
+
+
+
+    public function reply(string $id)
+    {
+        $rideRequest = RideRequest::findOrFail($id);
+        $cpUser = CpUser::findOrFail($rideRequest->requested_user_id);
+  
+        return view('ride_share\reply_request', compact('cpUser', 'rideRequest', 'id'));
+    }
+
+    public function replyRequest(Request $request, string $id)
+    {
+    $rideRequest = RideRequest::findOrFail($id);
+    $rideRequest->request_status = $request->get('request_status');
+    $rideRequest->save();
+
+    $rideRequests = RideRequest::where('requested_ride_id', $rideRequest->requested_ride_id)->get();
+    return view('ride_share\request_list', compact('rideRequests'));
+
+ 
+
+
+    }
+
 }

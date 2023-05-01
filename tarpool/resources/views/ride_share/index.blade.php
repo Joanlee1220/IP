@@ -8,9 +8,10 @@
                 <p>{{ \Session::get('success') }}</p>
             </div><br />
             @endif
-            <td>
+          
                             <a href="http://localhost:8000/ride_shares/create" class="btn btn-warning">Add</a>
-                        </td>
+                            <a href="{{ route('ride_shares.who') }}" class="btn btn-warning">Who</a>
+                     
             <table class="table table-striped">
             <thead>
                 <tr>

@@ -102,6 +102,20 @@ class RideRequestController extends Controller
 
     }
 
+    public function who()
+    {
+        return view('ride_request\who');
+    }
+
+    public function myRequest(string $userId)
+    {
+        $rideRequests = RideRequest::where('requested_user_id', $userId)->get();
+
+                return view('ride_request\my_request', compact('rideRequests'));
+    }
+    
+
+
 }
 
 

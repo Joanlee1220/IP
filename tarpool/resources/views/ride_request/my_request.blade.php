@@ -27,7 +27,13 @@
 <td>{{$rideRequest['requested_ride_id']}}</td>
 <td>{{$rideRequest['requested_user_id']}}</td>
 <td>{{$rideRequest['request_status']}}</td>
-<td><a href="{{route('ride_request.myRequest', $rideRequest['requested_user_id'])}}" class="btn btn-primary">is me</a></td>
+<td>
+                            <form action="{{route('ride_request.destroy',$rideRequest['id'])}}" method="post">
+                                @csrf
+                                <input name="_method" type="hidden" value="DELETE">
+                                <button class="btn btn-danger" type="submit">Delete</button>
+                            </form>
+                        </td>
 
                     </tr>
                     @endforeach

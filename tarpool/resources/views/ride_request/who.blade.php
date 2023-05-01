@@ -5,7 +5,7 @@
     <div class="container">
         <h2>Who i am</h2>
     
-        <form method="post"action="{{url('ride_shares.myShare')}}"> 
+        <form method="post"action="}"> 
             @csrf
             @method('PATCH')
             <div class="form-group">

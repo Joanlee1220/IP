@@ -35,7 +35,7 @@ body{
   border-bottom: 1px solid #e6e6e6;
 }
 .form form{
-  margin: 0 0;
+  margin: 10px 0;
 }
 .form form .error-text{
   color: #721c24;

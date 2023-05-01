@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\CpUser;
 
 class CpUserController extends Controller
 {
@@ -11,7 +12,8 @@ class CpUserController extends Controller
      */
     public function index()
     {
-        //
+        $cp_users = CpUser::all();
+        return view('userProfile\user_register', compact('cp_users'));
     }
 
     /**

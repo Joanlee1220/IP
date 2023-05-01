@@ -33,7 +33,7 @@
                             
                         </td>
                         <td>
-                        @if(isset($rideRequest) && !empty($rideRequest))
+                    
                         <form method="POST" action="{{ route('ride_request.acceptedRide',$rideRequest['id'])}}">
                         @csrf
                         @method('PUT')

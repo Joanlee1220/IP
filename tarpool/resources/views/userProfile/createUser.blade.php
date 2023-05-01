@@ -92,14 +92,11 @@
 <script>
     function togglePasswordVisibility() {
     var passwordInput = document.getElementById("password");
-    var confirmInput = document.getElementById("confirmPass");
     
-    if (passwordInput.type === "password" || confirmInput.type === "password") {
+    if (passwordInput.type === "password") {
         passwordInput.type = "text";
-        confirmInput.type = "text";
     } else {
         passwordInput.type = "password";
-        confirmInput.type = "password";
     }
     }
 

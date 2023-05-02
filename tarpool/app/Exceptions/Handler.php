@@ -27,4 +27,25 @@ class Handler extends ExceptionHandler
             //
         });
     }
+
+    // public function render($request, Throwable $exception)
+    // {
+
+    //     if ($exception instanceof HttpExceptionInterface) {
+    //         if ($exception->getStatusCode() == 401) {
+    //             return redirect()->route('401');
+    //         } 
+    //         if ($exception->getStatusCode() == 404) {
+    //             return redirect()->route('404');
+    //         }
+    //         if ($exception->getStatusCode() == 500) {
+    //             return redirect()->route('500');
+    //         }
+    //         if ($exception->getStatusCode() == 502) {
+    //             return redirect()->route('502');
+    //         }
+    //     } else {
+    //         return parent::render($request, $exception);
+    //     }
+    // }
 }

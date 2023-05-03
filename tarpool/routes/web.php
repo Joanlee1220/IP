@@ -28,7 +28,7 @@ Route::resource('ride_shares', App\Http\Controllers\RideShareController::class);
 
 Route::resource('ride_requests', App\Http\Controllers\RideRequestController::class);
 
-//CpUser
+//CpUser.
 Route::get('/userlogin', [App\Http\Controllers\CpUserController::class, 'userlogin'])->name('userlogin');
 Route::post('userprofile', function () {
     return view('userProfile/profile');

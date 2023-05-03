@@ -18,11 +18,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-/*Route::post('userprofile', function () {
-    return view('userProfile/profile');
-});*/
-Route::get('/userprofile', 'CpUserController@userlogin')->name('userprofile');
-
 Auth::routes();
 //resource
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -34,10 +29,10 @@ Route::resource('ride_shares', App\Http\Controllers\RideShareController::class);
 Route::resource('ride_requests', App\Http\Controllers\RideRequestController::class);
 
 //CpUser
-Route::get('/userprofile', 'CpUserController@userlogin')->name('userprofile');
-/*Route::post('userprofile', function () {
+Route::get('/userlogin', [App\Http\Controllers\CpUserController::class, 'userlogin'])->name('userlogin');
+Route::post('userprofile', function () {
     return view('userProfile/profile');
-});*/
+});
 
 //Ride Share
 

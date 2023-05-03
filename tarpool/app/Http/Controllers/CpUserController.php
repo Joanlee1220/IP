@@ -14,6 +14,37 @@ class CpUserController extends Controller
     {
         $cp_users = CpUser::all();
         return view('userProfile\user_login', compact('cp_users'));
+<<<<<<< HEAD
+=======
+    }
+
+    /*public function userlogin(Request $request)
+    {
+        $credentials = $request->only('email', 'password');
+        
+        if (Auth::attempt($credentials)) {
+            // The user is authenticated, so show the user profile
+            return view('userprofile');
+        } else {
+            // The user is not authenticated, so redirect to the login page
+            return redirect('/login')->with('error', 'Invalid login credentials');
+        }
+    }*/
+
+    public function userlogin(Request $request)
+    {
+        $credentials = $request->only('email', 'password');
+
+        if (Auth::attempt($credentials)) {
+            // Authentication was successful
+            return redirect()->route('userprofile');
+        } else {
+            // Authentication failed
+            return back()->withErrors([
+                'email' => 'The provided credentials do not match our records.',
+            ]);
+        }
+>>>>>>> 6db7b8ceb249e8bc0c6c4656313409d6b54159d7
     }
 
     /**
@@ -85,7 +116,11 @@ class CpUserController extends Controller
         $cpuser->verification_status = $request->get('verification_status');
         $cpuser->save();
       
+<<<<<<< HEAD
         return redirect('cp_users');
+=======
+      return redirect('cp_users');
+>>>>>>> 6db7b8ceb249e8bc0c6c4656313409d6b54159d7
     }
 
     /**

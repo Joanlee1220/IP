@@ -16,6 +16,34 @@ class CpUserController extends Controller
         return view('userProfile\user_login', compact('cp_users'));
     }
 
+    /*public function userlogin(Request $request)
+    {
+        $credentials = $request->only('email', 'password');
+        
+        if (Auth::attempt($credentials)) {
+            // The user is authenticated, so show the user profile
+            return view('userprofile');
+        } else {
+            // The user is not authenticated, so redirect to the login page
+            return redirect('/login')->with('error', 'Invalid login credentials');
+        }
+    }*/
+
+    public function userlogin(Request $request)
+    {
+        $credentials = $request->only('email', 'password');
+
+        if (Auth::attempt($credentials)) {
+            // Authentication was successful
+            return redirect()->route('userprofile');
+        } else {
+            // Authentication failed
+            return back()->withErrors([
+                'email' => 'The provided credentials do not match our records.',
+            ]);
+        }
+    }
+
     /**
      * Show the form for creating a new resource.
      */

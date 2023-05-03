@@ -14,11 +14,6 @@ class CpUserController extends Controller
     {
         $cp_users = CpUser::all();
         return view('userProfile\user_login', compact('cp_users'));
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
->>>>>>> be6b86760e95f7c27a55664f11d1ada8d1f513f5
     }
 
     /*public function userlogin(Request $request)
@@ -47,10 +42,6 @@ class CpUserController extends Controller
                 'email' => 'The provided credentials do not match our records.',
             ]);
         }
-<<<<<<< HEAD
-=======
->>>>>>> 6db7b8ceb249e8bc0c6c4656313409d6b54159d7
->>>>>>> be6b86760e95f7c27a55664f11d1ada8d1f513f5
     }
 
     /**
@@ -121,16 +112,8 @@ class CpUserController extends Controller
         $cpuser->status = $request->get('status');
         $cpuser->verification_status = $request->get('verification_status');
         $cpuser->save();
-      
-<<<<<<< HEAD
+
       return redirect('cp_users');
-=======
-<<<<<<< HEAD
-        return redirect('cp_users');
-=======
-      return redirect('cp_users');
->>>>>>> 6db7b8ceb249e8bc0c6c4656313409d6b54159d7
->>>>>>> be6b86760e95f7c27a55664f11d1ada8d1f513f5
     }
 
     /**

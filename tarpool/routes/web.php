@@ -33,19 +33,22 @@ Route::resource('ride_requests', App\Http\Controllers\RideRequestController::cla
 
 
 //Ride Share
+
 Route::get('/ride_shares/myShare/{userId}', ['as' => 'ride_shares.myShare', 'uses' => 'App\Http\Controllers\RideShareController@myShare']);
 
-Route::get('/ride_shares/who', 'App\Http\Controllers\RideShareController@who')->name('ride_shares.who');
+Route::get('/ride_shares/who', [App\Http\Controllers\RideShareController::class, 'who'])->name('ride_shares.who');
 
 Route::match(['put', 'accepted'], '/ride_request/{id}/accept', 'App\Http\Controllers\RideShareController@acceptedRideRide')->name('ride_request.acceptedRide');
 
-Route::put('/ride_request/{id}/accept', [App\Http\Controllers\RideShareController::class, 'acceptedRideRide'])->name('ride_request.acceptedRide');
 
 Route::get('/ride_shares/{id}/reply', [App\Http\Controllers\RideShareController::class, 'reply'])->name('ride_shares.reply');
 
 Route::patch('/ride_shares/{id}/replyRequest', [App\Http\Controllers\RideShareController::class, 'replyRequest'])->name('ride_shares.replyRequest');
 
-Route::get('/ride_shares/request_list', 'App\Http\Controllers\RideShareController@requestList')->name('ride_shares.request_list');
+
+Route::get('/rides/{id}/requests', [App\Http\Controllers\RideShareController::class, 'requestForRide'])->name('ride_shares.request_list');
+
+Route::fallback(function(){return view('ride_share\no'); });
 
 
 

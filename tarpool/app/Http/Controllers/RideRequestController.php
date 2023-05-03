@@ -40,15 +40,16 @@ class RideRequestController extends Controller
      */
     public function store(Request $request)
     {
-        $rideShare = RideShare::findOrFail($request->get('requested_ride_id'));
+        //$rideShare = RideShare::findOrFail($request->get('requested_ride_id'));
 
         $rideRequest = new RideRequest();
         $rideRequest->requested_user_id = $request->get('requested_user_id');
         $rideRequest->requested_ride_id = $request->get('requested_ride_id');
         $rideRequest->request_status = 'pending';
         $rideRequest->save();
-        $rideShare->current_available_seats -= 1;
-        $rideShare->save();
+
+        // $rideShare->current_available_seats -= 1;
+        // $rideShare->save();
 
         return redirect('ride_requests')->with('success', 'Ride request added');
     }

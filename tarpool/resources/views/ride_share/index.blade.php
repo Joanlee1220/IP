@@ -1,6 +1,15 @@
 @extends('layouts.temp')
 
 @section('content')
+<script>
+function toggleField(hideObj,showObj){
+  hideObj.disabled=true;        
+  hideObj.style.display='none';
+  showObj.disabled=false;   
+  showObj.style.display='inline';
+  showObj.focus();
+}
+</script>
 <div class="container">
             <br />
             @if (\Session::has('success'))
@@ -11,6 +20,55 @@
           
                             <a href="http://localhost:8000/ride_shares/create" class="btn btn-warning">Add</a>
                             <a href="{{ route('ride_shares.who') }}" class="btn btn-warning">Who</a>
+
+<form method="GET" action="">
+    <div class="row">
+        
+        <div class="col-md-4 mb-3">
+            <label for="pickup_location">Pickup Location</label>
+            <select class="form-control" id="pickup_location" name="dropoff_location"
+        onchange="if(this.options[this.selectedIndex].value=='customOption'){
+            toggleField(this,this.nextSibling);
+            this.selectedIndex='0';
+        }">
+          
+                <option value="TAR UMT" {{ Request::get('pickup_location') == 'pickup_location' ? 'selected':' '}}  >TAR UMT</option>
+                <option value="PV 13" {{ Request::get('pickup_location') == 'PV 13' ? 'selected' : '' }}>PV 13</option>
+<option value="PV 15" {{ Request::get('pickup_location') == 'PV 15' ? 'selected' : '' }}>PV 15</option>
+<option value="PV 18" {{ Request::get('pickup_location') == 'PV 18' ? 'selected' : '' }}>PV 18</option>
+<option value="PV 9" {{ Request::get('pickup_location') == 'PV 9' ? 'selected' : '' }}>PV 9</option>
+
+            </select>
+            <input name="pickup_location" style="display:none;" disabled="disabled"
+                   onblur="if(this.value==''){toggleField(this,this.previousSibling);}">
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <label for="dropoff_location">Dropoff Location</label>
+            <select class="form-control" id="dropoff_location" name="dropoff_location"
+        onchange="if(this.options[this.selectedIndex].value=='customOption'){
+            toggleField(this,this.nextSibling);
+            this.selectedIndex='0';
+        }">
+    <option  {{ Request::get('dropoff_location') == 'TAR UMT' ? 'selected':'' }}>TAR UMT</option>
+    <option {{ Request::get('dropoff_location') == 'PV 13' ? 'selected':'' }}>PV 13</option>
+    <option {{ Request::get('dropoff_location') == 'PV 15' ? 'selected':'' }}>PV 15</option>
+    <option {{ Request::get('dropoff_location') == 'PV 18' ? 'selected':'' }}>PV 18</option>
+    <option {{ Request::get('dropoff_location') == 'PV 9' ? 'selected':'' }}>PV 9</option>
+</select>
+            </select>
+            <input name="dropoff_location" style="display:none;" disabled="disabled"
+                   onblur="if(this.value==''){toggleField(this,this.previousSibling);}">
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <label for="ride_date">Ride Date</label>
+            <input type="date" class="form-control" id="ride_date" name="ride_date" value="{{ Request::get('ride_date') ?? date('Y-m-d') }}">
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Filter</button>
+</form>
+
                      
             <table class="table table-striped">
             <thead>

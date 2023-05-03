@@ -1,4 +1,4 @@
-@extends('layouts.temp')
+@extends('layouts.app')
 
 @section('content')
 <div class="container">
@@ -8,7 +8,7 @@
                 <p>{{ \Session::get('success') }}</p>
             </div><br />
             @endif
-            <a href="http://localhost:8000/ride_requests/iam" class="btn btn-warning">i am</a>
+      
             <table class="table table-striped">
             <thead>
                 <tr>
@@ -16,7 +16,7 @@
 <th scope="col">Ride ID</th>
 <th scope="col">Requested User ID</th>
 <th scope="col">Request Status</th>
-<th scope="col">Action</th>
+<th colspan="1">Action</th>
 
                 </tr>
             </thead>
@@ -27,13 +27,13 @@
 <td>{{$rideRequest['requested_ride_id']}}</td>
 <td>{{$rideRequest['requested_user_id']}}</td>
 <td>{{$rideRequest['request_status']}}</td>
-<td>
-                            <form action="{{route('ride_request.destroy',$rideRequest['id'])}}" method="post">
-                                @csrf
-                                <input name="_method" type="hidden" value="DELETE">
-                                <button class="btn btn-danger" type="submit">Delete</button>
-                            </form>
+
+                        <td>
+                        <a href="{{ route('ride_shares.reply', $rideRequest['id']) }}" class="btn btn-warning">REPLY</a>
+
+
                         </td>
+               
 
                     </tr>
                     @endforeach

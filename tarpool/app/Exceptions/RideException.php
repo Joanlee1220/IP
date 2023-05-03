@@ -17,8 +17,8 @@ class RideException extends Exception
     /**
      * Render the exception into an HTTP response.
      */
-    public function render(Request $request): Response
+    public function render($request)
     {
-        return view();
+        return view('ride_share\no');
     }
 }

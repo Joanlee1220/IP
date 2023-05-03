@@ -1,4 +1,4 @@
-@extends('layouts.temp')
+@extends('layouts.app')
 
 @section('content')
 <h2>Who i am</h2>

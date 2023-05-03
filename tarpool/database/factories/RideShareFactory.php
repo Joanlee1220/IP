@@ -23,8 +23,8 @@ class RideShareFactory extends Factory
     {
         return [
             'driver_id' => $this->faker->randomElement([123456, 123789, 456789]), // Replace with actual user IDs from cp_users table
-            'pickup_location' => $this->faker->address,
-            'dropoff_location' => $this->faker->address,
+            'pickup_location' => $this->faker->randomElement(['TAR UMT', 'PV 13', 'PV 15', 'pv 18']),
+            'dropoff_location' => $this->faker->randomElement(['TAR UMT', 'PV 13', 'PV 15', 'pv 18']),
             'ride_date' => $this->faker->dateTimeBetween('+1 week', '+2 weeks')->format('Y-m-d'),
             'ride_time' => $this->faker->time(),
             'price' => $this->faker->randomFloat(2, 10, 50),

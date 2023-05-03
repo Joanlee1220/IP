@@ -18,6 +18,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+/*Route::post('userprofile', function () {
+    return view('userProfile/profile');
+});*/
+Route::get('/userprofile', 'CpUserController@userlogin')->name('userprofile');
+
 Auth::routes();
 //resource
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
